@@ -4,11 +4,10 @@ defmodule Aoc2017Test.Day17Test do
 
   doctest Aoc2017.Day17
 
-  # @test_input """
-  # """
+  @test_input "3"
 
   test "Day17 Test1" do
-    # assert Aoc2017.Day17.solution1(@test_input) == nil
+    assert Aoc2017.Day17.solution1(@test_input) == 638
   end
 
   test "Day17 Test2" do
