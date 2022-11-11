@@ -7,7 +7,7 @@ defmodule Aoc2017.Day10 do
   @knot_round 64
   @chunk_size 16
 
-  use Bitwise
+  import Bitwise
 
   def parser(input) do
     input

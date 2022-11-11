@@ -2,7 +2,7 @@ defmodule Aoc2017.Day15 do
   @day "15"
   @input_file "../inputs/day#{@day}.txt"
 
-  use Bitwise
+  import Bitwise
 
   @factor [16807, 48271]
   @divisor 2_147_483_647

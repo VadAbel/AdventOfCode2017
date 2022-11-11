@@ -7,7 +7,7 @@ defmodule Aoc2017.Day14 do
   @chunk_size 16
   @salt [17, 31, 73, 47, 23]
 
-  use Bitwise
+  import Bitwise
 
   def parser(input) do
     to_append = String.to_charlist(input <> "-")
