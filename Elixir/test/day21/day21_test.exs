@@ -1,14 +1,16 @@
 defmodule Aoc2017Test.Day21Test do
   use ExUnit.Case
-  # import Aoc2017.Day21
+  import Aoc2017.Day21
 
   doctest Aoc2017.Day21
 
-  # @test_input """
-  # """
+  @test_input """
+  ../.# => ##./#../...
+  .#./..#/### => #..#/..../..../#..#
+  """
 
   test "Day21 Test1" do
-    # assert solution1(@test_input) == nil
+    assert solution1(@test_input, 2) == 12
   end
 
   test "Day21 Test2" do
