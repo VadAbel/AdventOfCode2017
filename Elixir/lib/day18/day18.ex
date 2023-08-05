@@ -1,4 +1,6 @@
 defmodule Aoc2017.Day18 do
+  @moduledoc false
+
   @day "18"
   @input_file "../inputs/day#{@day}.txt"
 
@@ -19,7 +21,7 @@ defmodule Aoc2017.Day18 do
     |> List.to_tuple()
   end
 
-  def parse_operand(operand = <<a, _rest::binary()>>) when a in ?a..?z,
+  def parse_operand(operand = <<a, _rest::binary>>) when a in ?a..?z,
     do: String.to_atom(operand)
 
   def parse_operand(operand), do: String.to_integer(operand)
@@ -181,7 +183,6 @@ defmodule Aoc2017.Day18 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -191,6 +192,5 @@ defmodule Aoc2017.Day18 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end

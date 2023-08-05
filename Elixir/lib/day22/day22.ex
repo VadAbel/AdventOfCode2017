@@ -1,4 +1,6 @@
 defmodule Aoc2017.Day22 do
+  @moduledoc false
+
   @day "22"
   @input_file "../inputs/day#{@day}.txt"
 
@@ -58,7 +60,7 @@ defmodule Aoc2017.Day22 do
   def evolve_2(:infected), do: :flagged
   def evolve_2(:flagged), do: :clean
 
-  def solution1(input, burst \\ 10000) do
+  def solution1(input, burst \\ 10_000) do
     1..burst
     |> Enum.reduce({parser(input), 0}, fn _, acc -> burst(acc, &evolve_1/1) end)
     |> elem(1)
@@ -77,7 +79,6 @@ defmodule Aoc2017.Day22 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -87,6 +88,5 @@ defmodule Aoc2017.Day22 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end

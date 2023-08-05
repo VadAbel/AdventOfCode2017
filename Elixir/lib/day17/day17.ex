@@ -1,4 +1,6 @@
 defmodule Aoc2017.Day17 do
+  @moduledoc false
+
   @day "17"
   @input_file "../inputs/day#{@day}.txt"
 
@@ -46,7 +48,6 @@ defmodule Aoc2017.Day17 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -56,6 +57,5 @@ defmodule Aoc2017.Day17 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end

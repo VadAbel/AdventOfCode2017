@@ -1,4 +1,6 @@
 defmodule Aoc2017.Day23 do
+  @moduledoc false
+
   @day "23"
   @input_file "../inputs/day#{@day}.txt"
 
@@ -95,7 +97,7 @@ defmodule Aoc2017.Day23 do
 
   def solution2(_input) do
     b = 84 * 100 + 100_000
-    c = b + 17000
+    c = b + 17_000
 
     b..c//17
     |> Enum.count(fn x ->
@@ -111,7 +113,6 @@ defmodule Aoc2017.Day23 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -121,6 +122,5 @@ defmodule Aoc2017.Day23 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end

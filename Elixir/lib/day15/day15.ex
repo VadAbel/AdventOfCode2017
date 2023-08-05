@@ -1,10 +1,12 @@
 defmodule Aoc2017.Day15 do
+  @moduledoc false
+
   @day "15"
   @input_file "../inputs/day#{@day}.txt"
 
   import Bitwise
 
-  @factor [16807, 48271]
+  @factor [16_807, 48_271]
   @divisor 2_147_483_647
   @mask 0xFFFF
 
@@ -73,7 +75,6 @@ defmodule Aoc2017.Day15 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -83,6 +84,5 @@ defmodule Aoc2017.Day15 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end

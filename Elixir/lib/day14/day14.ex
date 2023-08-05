@@ -1,4 +1,6 @@
 defmodule Aoc2017.Day14 do
+  @moduledoc false
+
   @day "14"
   @input_file "../inputs/day#{@day}.txt"
 
@@ -46,7 +48,7 @@ defmodule Aoc2017.Day14 do
 
     knot(sequence, elements, time)
     |> Enum.chunk_every(@chunk_size)
-    |> Enum.map(fn list ->
+    |> Enum.map_join(fn list ->
       Enum.reduce(list, fn x, acc ->
         bxor(acc, x)
       end)
@@ -54,19 +56,17 @@ defmodule Aoc2017.Day14 do
       |> String.downcase()
       |> String.pad_leading(2, "0")
     end)
-    |> Enum.join()
   end
 
   def convert_binary(a) do
     a
     |> String.split("", trim: true)
-    |> Enum.map(
+    |> Enum.map_join(
       &(&1
         |> String.to_integer(16)
         |> Integer.to_string(2)
         |> String.pad_leading(4, "0"))
     )
-    |> Enum.join()
   end
 
   def build_grid(keys) do
@@ -121,7 +121,6 @@ defmodule Aoc2017.Day14 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -131,6 +130,5 @@ defmodule Aoc2017.Day14 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end

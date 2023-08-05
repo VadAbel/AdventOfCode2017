@@ -1,4 +1,6 @@
 defmodule Aoc2017.Day04 do
+  @moduledoc false
+
   @day "04"
   @input_file "../inputs/day#{@day}.txt"
 
@@ -6,8 +8,7 @@ defmodule Aoc2017.Day04 do
     input
     |> String.split("\n")
     |> Enum.map(&String.split/1)
-    |> Enum.filter(&(&1 == Enum.uniq(&1)))
-    |> Enum.count()
+    |> Enum.count(&(&1 == Enum.uniq(&1)))
   end
 
   def solution2(input) do
@@ -23,8 +24,7 @@ defmodule Aoc2017.Day04 do
           second_split -- first_split == [],
           do: false
     end)
-    |> Enum.filter(&(&1 == []))
-    |> Enum.count()
+    |> Enum.count(&(&1 == []))
   end
 
   @doc """
@@ -34,7 +34,6 @@ defmodule Aoc2017.Day04 do
   def part1 do
     File.read!(@input_file)
     |> solution1
-    |> IO.inspect(label: "Day#{@day} Part1 result ")
   end
 
   @doc """
@@ -44,6 +43,5 @@ defmodule Aoc2017.Day04 do
   def part2 do
     File.read!(@input_file)
     |> solution2
-    |> IO.inspect(label: "Day#{@day} Part2 result ")
   end
 end
