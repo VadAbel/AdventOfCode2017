@@ -3,8 +3,10 @@ defmodule Mix.Tasks.Gen do
   use Mix.Task
 
   def run(args) do
-    case OptionParser.parse(args, strict: []) do
-      {[], [day], []} -> Aoc2017.gen(day)
+    with {[], [day_string], []} <- OptionParser.parse(args, strict: []),
+         {day, ""} when day in 1..25 <- Integer.parse(day_string) do
+      Aoc2017.gen(day)
+    else
       _ -> IO.puts("Invalid Arguments")
     end
   end

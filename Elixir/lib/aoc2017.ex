@@ -6,11 +6,19 @@ defmodule Aoc2017 do
 
   def solve_all() do
     1..25
-    |> Enum.each(&solve(Integer.to_string(&1)))
+    |> Enum.each(&solve/1)
   end
 
-  def solve(day, parts \\ [1, 2]) do
-    run_day = String.pad_leading(day, 2, "0")
+  def solve(day, parts \\ [1, 2])
+
+  def solve(day, []), do: solve(day, [1, 2])
+
+  def solve(day, parts) do
+    run_day =
+      day
+      |> Integer.to_string()
+      |> String.pad_leading(2, "0")
+
     module_day = Module.concat(__MODULE__, "Day#{run_day}")
 
     IO.puts("Solve Day #{day}")
@@ -32,7 +40,7 @@ defmodule Aoc2017 do
   end
 
   def gen(day) do
-    gen_day = String.pad_leading(day, 2, "0")
+    gen_day = day |> Integer.to_string() |> String.pad_leading(2, "0")
 
     day_file = "lib/day#{gen_day}/day#{gen_day}.ex"
     day_test_file = "test/day#{gen_day}/day#{gen_day}_test.exs"
